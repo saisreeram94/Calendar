@@ -18,7 +18,7 @@ var next_month_count_start = 1;
 for(var j=0; j<6; j++) {
     var parent_row = document.createElement('div');
     parent_row.classList.add("calendar-row");
-    for(var i=0; i<7; i++) {
+    for(var i=0; i<7; i++) { 
         var child_cell = document.createElement('div');
         child_cell.classList.add("calendar-cell");
         if(j===0 && i<current_month_first_day) {
