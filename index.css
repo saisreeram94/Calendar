@@ -55,4 +55,11 @@ body,html {
     width: 14.28571428571429%;
     float: left;
     text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.calendar-cell.next-month, .calendar-cell.previous-month {
+    opacity: 0.4;
+    font-weight: normal;
 }
