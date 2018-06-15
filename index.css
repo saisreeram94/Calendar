@@ -1,0 +1,58 @@
+* {
+    box-sizing: border-box;
+}
+
+body,html {
+    margin: 0;
+    padding: 0;
+}
+.calendar-container {
+    width: 100%;
+    float: left;
+}
+
+.calendar-month-wrapper {
+    padding: 10px;
+    float: left;
+    width: 100%;
+}
+
+.calendar-month {
+    position: relative;
+    width: 100%;
+    float: left;
+}
+
+.present-month {
+    text-align: center;
+}
+
+.slider-left,.slider-right {
+    position: absolute;
+    cursor: pointer;
+    padding: 0 15px;
+}
+
+.slider-left {
+    top: 0;
+    left: 0;
+}
+
+.slider-right {
+    top: 0;
+    right: 0;
+}
+
+.calendar-table {
+    width: 100%;
+    float: left;
+}
+
+.calendar-row {
+}
+
+.calendar-cell {
+    width: 14.28571428571429%;
+    float: left;
+    text-align: center;
+}
