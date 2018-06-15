@@ -80,10 +80,12 @@ function loadSelectedMonth(current_month, current_year) {
             if(j===0 && i<current_month_first_day) {
                 child_cell.innerText = prev_month_count_start;
                 child_cell.classList.add("previous-month");
+                child_cell.classList.add("update-dynamic-month");
                 prev_month_count_start++;
             }else if(count>number_of_days_in_a_month) {
                 child_cell.innerText = next_month_count_start;
                 child_cell.classList.add("next-month");
+                child_cell.classList.add("update-dynamic-month");
                 next_month_count_start++;
             }
             else {
@@ -95,4 +97,8 @@ function loadSelectedMonth(current_month, current_year) {
     dynamic_calendar_container.appendChild(parent_row);
     document.getElementsByClassName('calendar-table')[0].appendChild(dynamic_calendar_container);
     }
+    var bindElements = document.getElementsByClassName('update-dynamic-month');
+    for(var i=0; i<bindElements.length; i++){
+        addEvent('click', bindElements[i], changeView);
+    };
 }
