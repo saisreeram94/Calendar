@@ -1,4 +1,5 @@
 var month_array = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+var globalEventStore = {};
 window.onload = function() {
 
 // On page load we have to show the current Month and Year
@@ -90,6 +91,8 @@ function loadSelectedMonth(current_month, current_year) {
             }
             else {
                 child_cell.innerText = count;
+                child_cell.classList.add("current-month");
+                child_cell.setAttribute("data-date", count);
                 count++;
             }
         parent_row.appendChild(child_cell);
@@ -101,4 +104,41 @@ function loadSelectedMonth(current_month, current_year) {
     for(var i=0; i<bindElements.length; i++){
         addEvent('click', bindElements[i], changeView);
     };
+    var bindElements = document.getElementsByClassName('current-month');
+    for(var i=0; i<bindElements.length; i++){
+        addEvent('click', bindElements[i], function(){
+            var selected_day = this.getAttribute('data-date');
+            selected_day = new Date(selected_day + ' ' + current_month + ' '+ current_year);
+            displayEvent(selected_day);
+        });
+    };
+
+}
+
+
+// Function to create an event on that particular selected day
+function createEvent(selected_day) {
+
+}
+
+// function to edit an event on that particular day
+function editEvent(selected_day) {
+
+}
+
+//function to delete an event on that particular day 
+function deleteEvent(selected_day) {
+
+}
+
+// function to display an event on that particular day
+function displayEvent(selected_day) {
+    
+    if(globalEventStore[selected_day.toString()] !== undefined) {
+        // display event
+    }
+    else {
+        //display nothing
+        
+    }
 }
