@@ -63,3 +63,33 @@ body,html {
     opacity: 0.4;
     font-weight: normal;
 }
+
+.calendar-modal.hide {
+    display: none;
+}
+
+.calendar-modal {
+    position: absolute;
+    width: 80%;
+    background: silver;
+    z-index: 1;
+    top: 10%;
+    margin: auto;
+    left: 0;
+    right: 0;
+    padding: 15px;
+}
+
+.calendar-modal div {
+    margin-bottom: 10px; 
+}
+
+.add-icon {
+    padding: 4px;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
+.add-event-text-field.hide {
+    display: none;    
+}

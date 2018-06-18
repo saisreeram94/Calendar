@@ -118,7 +118,18 @@ function loadSelectedMonth(current_month, current_year) {
 
 // Function to create an event on that particular selected day
 function createEvent(selected_day) {
-
+    globalEventStore[selected_day.toString()] = globalEventStore[selected_day.toString()] || [];
+    var createField = document.getElementsByClassName('add-event-text-field')[0];
+    createField.classList.remove('hide');
+    var createButton = document.getElementsByClassName('primary-button')[0];
+    addEvent('click',createButton,function(){
+       var event_description =  document.getElementsByClassName('event-value')[0].value;
+       if(event_description.trim(' ').length > 0){
+        globalEventStore[selected_day.toString()].push(event_description);
+        createField.classList.add('hide');
+        displayEvent(selected_day);
+       }
+    })
 }
 
 // function to edit an event on that particular day
@@ -133,9 +144,22 @@ function deleteEvent(selected_day) {
 
 // function to display an event on that particular day
 function displayEvent(selected_day) {
-    
+    var modal = document.getElementsByClassName('calendar-modal')[0];
+    modal.classList.remove('hide');
+    var modalHeading = document.getElementsByClassName('modal-heading')[0];
+    modalHeading.innerText = selected_day.getDate() + ' ' + month_array[selected_day.getMonth()] + ' ' + selected_day.getFullYear();
+    var addIcon = document.getElementsByClassName('add-icon')[0];
+    addEvent('click', addIcon, function(){
+        createEvent(selected_day);
+    })
     if(globalEventStore[selected_day.toString()] !== undefined) {
         // display event
+        var tempDiv;
+        for(var i=0; i<globalEventStore[selected_day.toString()].length; i++){
+           tempDiv = document.createElement('div');
+           tempDiv.innerText = globalEventStore[selected_day.toString()][i];
+           modal.appendChild(tempDiv);
+        }
     }
     else {
         //display nothing
